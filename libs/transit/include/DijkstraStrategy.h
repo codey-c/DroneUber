@@ -1,0 +1,54 @@
+#ifndef LIBS_TRANSIT_INCLUDE_DIJKSTRASTRATEGY_H_
+#define LIBS_TRANSIT_INCLUDE_DIJKSTRASTRATEGY_H_
+
+#include "math/vector3.h"
+#include <vector>
+#include "IStrategy.h"
+#include "IEntity.h"
+/**
+ * @brief this class inhertis from the IStrategy class and is responsible for
+  generating the beeline that the drone will take.
+ */
+class DijkstraStrategy : public IStrategy {
+ public:
+   /**
+    * @brief The constructor for DijkstraStrategy class
+    * @param position Vector3 object that represents the position of the
+    * DijkstraStrategy object.
+    * @param destination Vector3 object that represents the destination of the
+    * DijkstraStrategy object.
+    * @param graph A pointer to a IGraph* object the represents a graph of the
+    * simulation. 
+    * @return A pointer to the new DijkstraStrategy object.
+    **/
+    DijkstraStrategy(Vector3 position, Vector3 destination,
+        const IGraph* graph);
+
+   /**
+    * @brief The deconstructor for the DijkstraStrategy class.
+    **/
+    ~DijkstraStrategy();
+
+   /**
+    * @brief The function adjusts time by dt increments and implements the
+    * movement logic of the strategy. 
+    * @param entity A pointer that points to the IEntity object that is
+    * to be moved.
+    * @param dt A float that represents the time that is to be added to the
+    * time field.
+    **/
+    void Move(IEntity* entity, double dt);
+
+   /**
+    * @brief Checks to see if the strategy has finished implementing its logic.
+    * @return A bool that returns true when the strategy is completed.  
+    **/
+    bool IsCompleted();
+
+ private:
+    std::vector<std::vector<float>> path;
+    int currentIndex;
+    int maxIndex;
+};
+
+#endif  // LIBS_TRANSIT_INCLUDE_DIJKSTRASTRATEGY_H_

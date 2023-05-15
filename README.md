@@ -54,7 +54,7 @@ This feature runs automatically while the simulation runs, and requires no work 
 
 ## UML
 
-![UML](https://github.umn.edu/umn-csci-3081-F22/Team-001-6-homework04/blob/main/New%20Feature%20UML%20diagram.jpeg)
+![UML](https://github.com/codey-c/DroneUber/blob/main/New%20Feature%20UML%20diagram.jpeg)
 
 
 ## Docker link
